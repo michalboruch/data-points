@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+  api:
+    build:
+      context: ./api-svc
+    container_name: api-svc
+    volumes:
+      - ./api-svc:/usr/src/app
+    ports:
+      - "8000:8000"
+    networks:
+      - data-points
+
+
+networks:
+  data-points:
