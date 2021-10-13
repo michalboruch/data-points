@@ -14,6 +14,17 @@ services:
     networks:
       - data-points
 
+  calc:
+    build:
+      context: ./calculate-svc
+    container_name: data-points-calc-svc
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    networks:
+      - data-points
+
   db:
     image: postgres:13
     container_name: data-points-db
