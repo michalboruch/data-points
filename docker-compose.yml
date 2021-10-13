@@ -4,13 +4,33 @@ services:
   api:
     build:
       context: ./api-svc
-    container_name: api-svc
+    container_name: data-points-api-svc
     volumes:
       - ./api-svc:/usr/src/app
     ports:
       - "8000:8000"
+    depends_on:
+      - db
     networks:
       - data-points
+
+  db:
+    image: postgres:13
+    container_name: data-points-db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    expose:
+      - "5432"
+    networks:
+      - data-points
+
+
+volumes:
+  postgres_data:
 
 
 networks:
