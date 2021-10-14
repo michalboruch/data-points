@@ -21,7 +21,7 @@ method: GET
 path variable: data point name  
 query arguments:
 - `from` time range start (epoch)
-- `to` time range stop (epoch)
+- `to` time range stop (epoch)  
 example: `curl_requests/get_stats.sh`
 
 ## Tech stack
