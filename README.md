@@ -1,4 +1,4 @@
-# Dara Points
+# Data Points
 Simple system for saving and calculating data
 
 ## Requirements
@@ -10,15 +10,15 @@ Docker & Docker compose
 ## API
 
 ### Save items into db
-url: `http://localhost:8000/api`
-method: POST
-payload: json
+url: `http://localhost:8000/api`  
+method: POST  
+payload: json  
 example: `curl_requests/add_data.sh`
 
 ### Get basic statistics
-url: `http://localhost:8000/api/<name>`
-method: GET
-path variable: data point name
+url: `http://localhost:8000/api/<name>`  
+method: GET  
+path variable: data point name  
 query arguments:
 - `from` time range start (epoch)
 - `to` time range stop (epoch)
