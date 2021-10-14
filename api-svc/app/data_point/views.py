@@ -1,6 +1,7 @@
 import json
+import requests
 
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
 from .models import DataPoint
@@ -32,3 +33,14 @@ def data_point_list(request):
     DataPoint.objects.bulk_create(parsed_data, ignore_conflicts=True)
     response.status_code = 201
     return response
+
+
+def data_point_statistics(request, name):
+    # TODO: validate request data
+    from_ts = request.GET.get("from")
+    to_ts = request.GET.get("to")
+    
+    url = f"http://calc:8080/basic_stats?name={name}&from={from_ts}&to={to_ts}"
+
+    data = requests.get(url).json()
+    return JsonResponse(data)
