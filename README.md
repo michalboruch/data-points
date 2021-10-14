@@ -1,11 +1,11 @@
-# data-points
+# Dara Points
 Simple system for saving and calculating data
 
 ## Requirements
 Docker & Docker compose
 
 ## Run with
-`docker-compose up --build'
+`docker-compose up --build`
 
 ## API
 
